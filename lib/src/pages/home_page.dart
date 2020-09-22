@@ -4,9 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:componentes/src/providers/menu_provider.dart';
 import 'package:componentes/src/utils/icono_string_util.dart';
 
-//Páginas
-import 'package:componentes/src/pages/alert_page.dart';
-
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -52,9 +49,10 @@ class HomePage extends StatelessWidget {
         leading: getIcon(opt['icon']),
         trailing: Icon(Icons.keyboard_arrow_right, color: Colors.blue),
         onTap: () {
-          final route = MaterialPageRoute(builder: (context) => AlertPage());
+          //final route = MaterialPageRoute(builder: (context) => AlertPage());
+          //Navigator.push(context, route);
 
-          Navigator.push(context, route);
+          Navigator.pushNamed(context, opt['ruta']);
         },
       );
 

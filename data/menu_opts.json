@@ -1,25 +1,35 @@
 {
-    "nombreApp" : "Componentes",
-    "rutas" : [
-        {
-            "ruta" : "alert",
-            "icon" : "add_alert",
-            "texto": "Alertas"
-        },
-        {
-            "ruta" : "avatar",
-            "icon" : "accessibility",
-            "texto": "Avatars"
-        },
-        {
-            "ruta" : "card",
-            "icon" : "folder_open",
-            "texto": "Cards - Tarjetas"
-        },
-        {
-            "ruta" : "call",
-            "icon" : "access_time",
-            "texto": "Calls - Missed"
-        }
-    ]
+  "nombreApp": "Componentes",
+  "rutas": [
+    {
+      "ruta": "alert",
+      "icon": "add_alert",
+      "texto": "Alertas"
+    },
+    {
+      "ruta": "avatar",
+      "icon": "account_circle",
+      "texto": "Avatars"
+    },
+    {
+      "ruta": "card",
+      "icon": "filter_center_focus",
+      "texto": "Cards - Tarjetas"
+    },
+    {
+      "ruta": "animatedContainer",
+      "icon": "donut_large",
+      "texto": "Animated Container"
+    },
+    {
+      "ruta": "input",
+      "icon": "input",
+      "texto": "Inputs"
+    },
+    {
+      "ruta": "call",
+      "icon": "call",
+      "texto": "Llamadas"
+    }
+  ]
 }
