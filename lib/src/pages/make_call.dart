@@ -1,17 +1,29 @@
-import 'package:componentes/src/services/call_and_messages_service_.dart';
-import 'package:componentes/src/services/service_locator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-//import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class PhoneCallPage extends StatefulWidget {
+class MakeACall extends StatefulWidget {
   @override
-  _PhoneCallPageState createState() => _PhoneCallPageState();
+  _MakeACallState createState() => _MakeACallState();
 }
 
-class _PhoneCallPageState extends State<PhoneCallPage> {
+class _MakeACallState extends State<MakeACall> {
   String _number = '';
-  final CallsAndMessagesService _service = locator<CallsAndMessagesService>();
+
+  Future<void> _makePhoneCall(String contact, bool direct) async {
+    if (direct == true) {
+      bool res = await FlutterPhoneDirectCaller.callNumber(contact);
+      print(res);
+    } else {
+      String telScheme = 'tel:$contact';
+
+      if (await canLaunch(telScheme)) {
+        await launch(telScheme);
+      } else {
+        throw 'Could not launch $telScheme';
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +37,14 @@ class _PhoneCallPageState extends State<PhoneCallPage> {
           _crearInput(),
           Divider(),
           Center(
-            child: RaisedButton(
-              child: Text("Test Call"),
-              onPressed: () => _service.call(_number),
+            child: Column(
+              children: <Widget>[
+                Icon(Icons.phone),
+                RaisedButton(
+                  child: Text("Test Call"),
+                  onPressed: () => _makePhoneCall(_number, true),
+                ),
+              ],
             ),
           ),
         ],
